@@ -16,5 +16,5 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.after(:all) { FileUtils.rm_rf '/tmp/html_from_pdf' }
+  config.after(:each) { FileUtils.rm_rf '/tmp/html_from_pdf' }
 end

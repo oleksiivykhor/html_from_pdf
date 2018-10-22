@@ -24,11 +24,16 @@ Or install it yourself as:
 
 ```ruby
 HtmlFromPdf.convert('sample.pdf', 'path/to/html.html', options: { zoom: 1.5 })
+HtmlFromPdf.convert('https://url_path_for_pdf', options: { zoom: 1.5 })
 ```
 Path to html is optional
 ```ruby
 HtmlFromPdf.convert('sample.pdf', options: { zoom: 1.5 })
 ```
+
+**HtmlFromPdf** has a two methods: **convert** and **convert!**.
+* The first doesn't raise exceptions and returns *nil* if something went wrong
+* The second raises exceptions if something went wrong
 
 #### Allowed options:
 

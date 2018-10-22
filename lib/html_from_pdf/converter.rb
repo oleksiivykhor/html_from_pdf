@@ -1,5 +1,7 @@
 module HtmlFromPdf
   class Converter
+    include HtmlFromPdf::Helpers
+
     def initialize(pdf_path, html_path, options = {})
       @pdf_path = pdf_path
       @html_path = html_path
@@ -28,7 +30,7 @@ module HtmlFromPdf
       when !@html_path && @options[:dest_dir]
         file_name = nil
       else
-        @options[:dest_dir], file_name = File.split(default_html_path)
+        @options[:dest_dir], file_name = File.split(default_file_path)
       end
       file_name
     end
@@ -43,11 +45,6 @@ module HtmlFromPdf
       end
 
       result
-    end
-
-    def default_html_path
-      file_name = "#{Time.now.strftime('%m_%d_%Y__%H_%M_%S')}.html"
-      File.join('/tmp/html_from_pdf', file_name)
     end
   end
 end
